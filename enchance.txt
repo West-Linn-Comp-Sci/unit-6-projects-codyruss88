@@ -1,0 +1,119 @@
+import java.util.function.Function;
+public class MusicLibrary {
+private Album[] albums;
+ public MusicLibrary() {
+  
+
+albums = new Album[10];
+  
+  }
+public void add(Album album) {
+    for(int i = 0; i < albums.length; i++) {
+     
+ if(albums[i] != null) continue;
+      albums[i] = album;
+      return;
+        }
+       }
+
+    public void doubleSize() {
+        int size = albums.size;
+        Album[] newAlbums = new Album[size * 2];
+    for(int i = 0; i < length; i++) {
+      newAlbums[i] = albums[i];
+   }
+        albums = newAlbums;
+    }
+ public void remove(int index) {
+        for(int i = index - 1; i < albums.size - 1; i++) {
+            albums[i] = albums[i + 1];
+        }
+        albums[albums.size - 1] = null;
+    }
+
+    public String toString() {
+        String out = "Library";
+       Int songtime = 0;
+        int songs = 0;
+        double time = 0;
+        for(int i = 0; i < albums.size; i++) {
+            Album album = albums[i];
+            if(album == null) {
+                out += (i + 1) + "None";
+           continue;
+            }
+            songs += album.getNumsongs();
+            time += album.gettime();
+            out += String.format("%", (i + 1), album);   }
+        out += "Stats";
+        out += String.format("Songs: Time: minutes", Songs, time);
+        return out;
+    }
+
+    public Album getFromTitleLinear(String title) {
+        for(Album album : albums) {
+            if(album == null)
+continue;
+            if(album.getName().equals(title)) return album;
+        }
+        return null;
+    }
+ public Album getFromArtistLinear(String artist) {
+  for(Album album : albums) {
+    if(album == null) continue;
+     if(album.getArtist().equals(artist)) return album;
+        }
+        return null;
+    }
+
+    public Album title(String title) {
+        sortByTitle();
+        return getFromBinarySearch((album) -> album.getName(), title);
+    } public Album getFromArtistBinary(String artist) {
+        sortByArtist();
+        return title((album) -> album.getArtist(), artist);
+    }
+
+    private Album title(Function<Album, String> getKeyVal, String target) {
+        int size = 0;
+        for(Album album : albums) if(album != null) size++;
+        int little = 0;
+        int alot = length - 1;
+        int middle = (little + alot) / 2;
+
+        while(!(getKeyVal.apply(albums[middle]).equals(target)) && little <= alot) {
+            if(target.compareTo(getKeyVal.apply(albums[middle])) < 0) alot = middle - 1;
+            else little = middle + 1;
+            middle = (little + alot) / 2;   }
+if(getKeyVal.apply(albums[middle]).equals(target)) return albums[middle];
+        return null;
+    }
+  private void sortByTitle() {
+        int size = 0;
+        for(Album album : albums) if(album != null) size++;
+        for(int i = 0; i < size - 1; i++) {
+            int min = i;
+            for(int scan = i + 1; scan < size; scan++) {
+                if(albums[scan] == null) continue;
+                if(albums[scan].getName().compareTo(albums[min].getName()) < 0) min = scan;
+            } Album temp = albums[min];
+            albums[min] = albums[i];
+            albums[i] = temp;    }
+    }
+  private void sortByArtist() {
+        int size = 0;
+        for(Album album : albums) if(album != null) size++;
+	For int 1 {
+}
+= 1; i < size; i++) {
+            Album key = albums[i];
+            int position = i;
+  while(position > 0 && (albums[position - 1].getArtist().compareTo(key.getArtist()) > 0)) {
+                if(albums[position] == null) continue;
+                albums[position] = albums[position - 1];
+                position--;
+            }
+            albums[position] = key;
+        }
+    }
+}
