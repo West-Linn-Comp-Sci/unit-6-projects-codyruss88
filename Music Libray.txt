@@ -1,0 +1,56 @@
+import java.util.*;
+import java.util.Arrays;
+public class SongLibrary1
+{   
+ public static void main(String[] args){
+   String title;
+   String artist;
+   int time;
+    int rate;
+   String String1;
+Random r = new Random();
+Scanner console = new Scanner(System.in);
+    System.out.println("Welcome to your music program");
+    System.out.println("How many songs?");
+    int number = console.nextInt();
+   Songs[] IT = new Songs[number];
+    double totalsum = 0;
+   int sum = 0;
+   Songs Song1;
+   // String Song1 = Songs[s1].toString();
+    for(int i = 1; i <= number; i = i + 1){
+      if(i <= number){
+      System.out.println("What number song is this?" + i);
+      System.out.println("What is the name of the song?");
+       String s = console.next();
+       String t;
+       t = console.nextLine();
+       title = t;
+ System.out.println("Who is the artist of this song?");
+       artist = console.nextLine();
+      System.out.println("How long is this song in seconds?");
+       time = console.nextInt();
+       if(time <= 0){
+              System.out.println("Needs to be longer than 0 seconds!!");
+          System.out.println("how many seconds long is the song?");
+          time = console.nextInt();
+          time++;
+        }
+     sum += time;
+     rate = r.nextInt(5)+ 1;
+    totalsum += rate;
+ Song1 = new Songs(t, artist, time, rate);
+       
+
+     if(i >= number){
+       System.out.println("=======Song Library Summary=======");
+        System.out.println("Title \t \t Artist \t \t Time \t \t");
+         System.out.println(Song1.toString());
+           // String Song1 = IT.toString(title,artist,time,rate);
+           // System.out.println(IT[SongRunner1].toString());
+        System.out.println("\n \n" + "The  average rating is:"+ (totalsum)/(double)(number));
+        System.out.println("The total time is:"+ sum/60 + ":" + sum%60+ "\n");
+     }
+ }
+}}
+}
