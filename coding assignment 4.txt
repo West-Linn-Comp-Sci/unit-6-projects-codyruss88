@@ -1,0 +1,60 @@
+import
+ java.util.Arrays;
+   public boolean oddColSum(int[][] nums, int col) {
+       int sum = Arrays.stream(nums).parallel().mapToInt(row -> row[col]).sum();
+       return sum % 2 != 0;
+   }
+public class Array2DExplorer {
+ public boolean evenRow(int[][] mat, int row) {
+    for(int i : mat[row]) {
+       if(i % 2 != 0) return false;
+       }
+     return true;
+   }
+       smallestVal = i;
+       }
+       }
+       return smallestArray;
+   }
+
+public int[] colMaxs(int[][] matrix) {
+       int[] out = new int[matrix[0].length];
+       for(int i = 0; i < matrix[0].length; i++) {
+           int max = Integer.MIN_VALUE;
+           for(int[] row : matrix) {
+               if(row[i] > max) max = row[i];
+           }
+           out[i] = max;
+       }
+       return out;
+   }
+   public int minRowAssignment(int[][] nums, int row) {
+       int minimum = nums[row][0];
+       for(int i : nums[row]) {
+           if(i < minimum) minimum = i;
+       }
+       return minimum;
+   }
+       for(int i = 0; i < nums[0].length; i++) {
+           int answer = 0;
+           for(int[] row : nums) {
+               answer += row[i];
+         }
+          out[i] = (double) answer / nums.length;
+       }
+       return out;
+   }
+public int biggestRow(int[][] nums) {
+       int[] rowSums = allRowSums(nums);
+       int largest = 0;
+       for(int i = 1; i < rowSums.length; i++) {
+           if(rowSums[i] > rowSums[largest]) largest = i;
+       }
+      return largest;
+   }
+
+
+}
+
+
+
