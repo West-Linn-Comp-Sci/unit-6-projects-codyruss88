@@ -3,7 +3,7 @@ public class ChessBoard1
 {
     public static void main(String[] args)
     {
-        //Create an 8x8 2D String array called chess.
+       
         String[] back = {"Rook", "Knight", "Bishop", "Queen", "King", "Bishop", "Knight", "Rook"};
         String[] front = arrayOfEight("Pawn");
         String[] empty = arrayOfEight("-");
