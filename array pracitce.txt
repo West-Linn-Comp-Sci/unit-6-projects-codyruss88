@@ -3,8 +3,7 @@ public class ArrayPractice
     public static void main(String[] args)
     {
         int[][] array = {{5, 4, 2, 1, 0}, {523, 63, 2342, 586, 1, 6534, 0}, {10, 9, 2, 0}};
-        //Call the fixArray method three times on this array:
-
+   
         fixArray(array, 0, array[0].length - 1, array[0].length);
         fixArray(array, 1, array[1].length - 1, array[1][0] + array[1][array[1].length - 2]);
         fixArray(array, 2, array[2].length - 1, array.length);
